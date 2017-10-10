@@ -63,7 +63,7 @@ contract SecondPriceAuction {
 		admin = _admin;
 		beginTime = _beginTime;
 		tokenCap = _tokenCap;
-		endTime = beginTime + 15 days;
+		endTime = beginTime + 15 hours;
 	}
 
 	// No default function, entry-level users
@@ -332,7 +332,7 @@ contract SecondPriceAuction {
 	uint public eraIndex;
 
 	/// The size of the era in seconds.
-	uint constant public ERA_PERIOD = 5 minutes;
+	uint constant public ERA_PERIOD = 1 minutes;
 
 	// Static constants:
 
