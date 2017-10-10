@@ -1,7 +1,7 @@
 # Test version on Kovan
 
 The auction contract has been deployed on Kovan.
-It is *almost* identical to the original one but some of the time values have been shortened.
+It is *almost* identical to the original one but a few changes have been made to make it easier to test: shorter times, less checks on KYC.
 
 WARNING: Disclaimer: I am not related to Parity. This contract is only deployed on Testnet for testing purpose, to allow people who would like to, to spot issues or play with the auction contract.
 
@@ -19,9 +19,19 @@ There is no UI. The ABI of the Contract auction is provided below but feel free 
 
 	0xaD5fd9e2B03A3f0879081DE8bb813a817b69981E
 
+
+## Self-cert
+
+	0xCBbB420160E800569F0fd02D21445d2776095c4c
+
+Just call the certify function on it and voilà! You are certified.
+That´s how KYC should be :)
+
 ## Auction: 
 
-	0x2bdd4Fb270B69b673f95D0C01DA6183cC2cCFe95
+	0xD04E21564242E710685E20002E9B6dBFa4797f1c
+
+NOTE: It uses the Self-cert contract.
 
 Auction ABI: 
 

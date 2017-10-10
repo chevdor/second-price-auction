@@ -61,9 +61,10 @@ contract SecondPriceAuction {
 		tokenContract = Token(_tokenContract);
 		treasury = _treasury;
 		admin = _admin;
+		if (_beginTime ==0 ) _beginTime = now;
 		beginTime = _beginTime;
 		tokenCap = _tokenCap;
-		endTime = beginTime + 15 hours;
+		endTime = beginTime + 2 hours;
 	}
 
 	// No default function, entry-level users
@@ -265,9 +266,9 @@ contract SecondPriceAuction {
 	/// the gas price is sufficiently low and the value is sufficiently high.
 	modifier only_eligable(address who, uint8 v, bytes32 r, bytes32 s) {
 		require (
-			ecrecover(STATEMENT_HASH, v, r, s) == who &&
+			//ecrecover(STATEMENT_HASH, v, r, s) == who &&
 			certifier.certified(who) &&
-			isBasicAccount(who) &&
+			// isBasicAccount(who) &&
 			(tx.gasprice <= MAX_GAS_PRICE || now > beginTime + BONUS_DURATION) &&
 			msg.value >= DUST_LIMIT
 		);
@@ -357,7 +358,7 @@ contract SecondPriceAuction {
 	uint constant public BONUS_SIZE = 15;
 
 	/// Duration after sale begins that bonus is active.
-	uint constant public BONUS_DURATION = 1 hours;
+	uint constant public BONUS_DURATION = 15 minutes;
 
 	/// Number of Wei in one USD, constant.
 	uint constant public USDWEI = 1 ether / 250;
